@@ -1,1 +1,0 @@
-Cookies Demo
