@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cookie Demo</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1,
+      h2 {
+        text-transform: capitalize;
+        text-align: center;
+        float: left;
+        width: 200px;
+        font-size: 1.1em;
+      }
+
+      h2 {
+        font-size: 0.9em;
+      }
+
+      .box {
+        background-color: <%=colourCode %>;
+        width: 50px;
+        height: 50px;
+        border-radius: 0px;
+        animation: pulse 3s linear 2s infinite alternate;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        width: 320px;
+        margin: auto;
+        padding: 45px;
+        text-align: center;
+      }
+
+      @keyframes pulse {
+        from {
+          border-radius: 0px;
+        }
+
+        to {
+          border-radius: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="box"></div>
+      <h1>
+        I prefer <%= faveColour %>
+      </h1>
+      <div class="box"></div>
+    </section>
+    <section>
+      <form method="post">
+        <select name="faveColour">
+          <option value="red" <%= faveColour === 'red' ? 'selected' : '' %>>Red</option>
+          <option value="blue" <%= faveColour === 'blue' ? 'selected' : '' %>>Blue</option>
+          <option value="green" <%= faveColour === 'greed' ? 'selected' : '' %>>Green</option>>
+          Green</option>
+          <option value="orange" <%= faveColour === 'orange' ? 'selected' : '' %>>Orange</option>
+        </select>
+        <input type="submit" value="Change Colour" />
+                        <p><a href="/reset">Reset</a></p>
+      </form>
+
+    </section>
+    <section>
+      <div class="box"></div>
+      <h2>You have visited <%= visitCount %> times</h2>
+
+      <div class="box"></div>
+    </section>
+
+  </body>
+</html>
