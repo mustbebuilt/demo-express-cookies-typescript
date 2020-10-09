@@ -6,3 +6,7 @@ Assuming Node and Nodemon installed to set up run:
 
 npm install
 nodemon app
+
+## VM Fix
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
