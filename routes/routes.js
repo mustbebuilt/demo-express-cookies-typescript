@@ -32,8 +32,8 @@ module.exports = () => {
   });
   router.get("/favecolour", (req, res) => {
     let myFaveColour = "red";
-    if (req.cookies.myFaveColour) {
-      myFaveColour = req.cookies.myFaveColour;
+    if (req.cookies.cookieFaveColour) {
+      myFaveColour = req.cookies.cookieFaveColour;
     }
     // count example
     let visitCount = 1;
@@ -58,7 +58,7 @@ module.exports = () => {
     // console.dir(req.body);
     let myFaveColour = req.body.faveColour;
     let colourCode = sortColour(myFaveColour);
-    res.cookie("faveColour", myFaveColour);
+    res.cookie("cookieFaveColour", myFaveColour);
     // count example
     let visitCount = req.cookies.visitCount;
     return res.render("favecolour", {
@@ -70,7 +70,7 @@ module.exports = () => {
   });
 
   router.get("/reset", (req, res) => {
-    res.clearCookie("faveColour");
+    res.clearCookie("cookieFaveColour");
     res.clearCookie("visitCount");
     res.redirect("/faveColour");
   });
