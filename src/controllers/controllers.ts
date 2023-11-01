@@ -45,7 +45,13 @@ const faveColourPostController = (req: Request, res: Response): void => {
     let myFaveColour = req.body.faveColour;
     let colourCode = sortColour(myFaveColour);
     res.cookie("cookieFaveColour", myFaveColour);
-    let visitCount = req.cookies.visitCount;
+    let visitCount = 0;
+    if (req.cookies.visitCount) {
+        visitCount = parseInt(req.cookies.visitCount) + 1;
+    } else {
+        visitCount = 1;
+    }
+    res.cookie("visitCount", visitCount);
     res.render("favecolour", {
         title: "My Favourite Colour",
         faveColour: req.body.faveColour,
